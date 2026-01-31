@@ -13,7 +13,6 @@ build:
   Compilation: make sumClone
   # Validation pour valider et verifier la reponses
   Validation: make sumValidate
-  # les programmes utilises
+  # les programmes
   Dependencies: ["gcc","make"]
-  # execution du test
-  Test: testSum
+
