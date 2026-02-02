@@ -1,0 +1,12 @@
+type: exercise
+name: pg116_piece_list
+title: Piece list
+desc: Implémentation d'une "Piece list"
+build_system: grader
+files:
+  enonce.c:
+    selected: true
+    readonly: false
+    language: c
+  libexam.a:
+    visible: false
