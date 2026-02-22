@@ -2,9 +2,9 @@ tags: int
 description: "Returns the minimum value in an array of integers."
 timeout: 3
 distributes:
-  test.o
-  skeleton.c
-  Makefile
+  - test.o
+  - skeleton.c
+  - Makefile
 commands:
   prepare: "make prepare"
   validate: "make test"
