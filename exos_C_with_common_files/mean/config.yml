@@ -1,0 +1,10 @@
+tags: array int
+description: "Returns the mean of an array of integers."
+timeout: 5
+distributes:
+  - test.o
+  - skeleton.c
+  - Makefile_test: Makefile
+commands:
+  prepare: "make prepare"
+  validate: "make test"

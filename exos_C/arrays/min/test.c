@@ -15,7 +15,7 @@ int min_corr(int len, int arr[len])
     }
     int min = arr[0];
     for (int i = 1; i < len; i++) {
-        if (arr[i] > min) {
+        if (arr[i] < min) {
             min = arr[i];
         }
     }
