@@ -1,0 +1,10 @@
+tags: int
+description: "Returns the sum of two integers."
+timeout: 1
+distributes:
+  - test.o
+  - skeleton.c
+  - Makefile
+commands:
+  prepare: "make prepare"
+  validate: "make test"
