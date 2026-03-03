@@ -1,3 +1,4 @@
+name: max
 tags: array int
 description: "Returns the maximum value in an array of integers."
 timeout: 3
