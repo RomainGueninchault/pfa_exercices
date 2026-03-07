@@ -1,0 +1,11 @@
+name: factorial
+tags: int
+description: "Returns the factorial of a number."
+timeout: 3
+distributes:
+  - test.o
+  - skeleton.c
+  - Makefile
+commands:
+  prepare: "make prepare"
+  validate: "make test"
