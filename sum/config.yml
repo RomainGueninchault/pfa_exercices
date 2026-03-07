@@ -1,3 +1,4 @@
+name: sum
 tags: int
 description: "Returns the sum of two integers."
 timeout: 1
