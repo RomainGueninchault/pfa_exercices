@@ -1,0 +1,3 @@
+tags: array int
+description: "Returns the mean of an array of integers."
+timeout: 5

@@ -1,0 +1,18 @@
+author: Julien Allali (allali@enseirb-matmeca.fr)
+tags:
+  - trivial
+  - arithmetic
+timeout: 3
+#subsystem: grader2:1.0 # Provides the commands run by the subsystem
+distributes:           # Additional list of files distributed to the student
+  - readme.md          # The subsystem may also distribute its own files
+  - test.o
+  - Makefile.check: Makefile
+  - skeleton.c
+commands:              # A raw subsystem may provide its own commands
+  prepare: "make prepare"
+  execute: "make test"
+  clean:   "make clean"
+#subconfig:             # Keys reserved to the config of the subsystem
+#  unauthorized_funs: "free"
+#  memoru_allocator: "malloc"

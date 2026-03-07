@@ -1,0 +1,82 @@
+#!/bin/bash
+
+function launch_all_self_tests() {
+    CPT=0
+    EXCLUDED="\(^\./archives/\.*\|^\./bits\|^\./tests\|^\./skel\|^\./spock\)"
+
+    for a_provided in $(find . -name provided.c | sort -R)
+    do
+        a_base=$(dirname $a_provided)
+        if [ ! -z "$(echo $a_provided | grep -v -e $EXCLUDED)" ]
+        then
+            CPT=$((CPT+1))
+            echo EXO=$a_base DST=/tmp make clean self-test
+            (EXO=$a_base DST=/tmp make clean self-test) &> /dev/null
+            result=$?
+            if [ $result -ne 0 ]
+            then
+                echo $result
+                break
+            fi
+        fi;
+    done
+    echo "$CPT exos handled"
+}
+
+function is_ok() {
+    echo "\033[0;32mOK\033[0;0m"
+}
+function is_ko() {
+    echo "\033[0;31mKO\033[0;0m"
+}
+function test() {
+    [ $1 ] && is_ok || is_ko
+}
+function test_not_contains() {
+    STR=$1
+    FILE=$2
+    if [ -e $FILE ]
+    then
+        RES=$(grep $STR $FILE)
+        [ -z "$RES" ] && is_ok || is_ko
+    else
+        is_ko
+    fi
+}
+
+function list_outdated_exercises() {
+    CPT=0
+    EXCLUDED="\(^\.$\|^\./\.git\|^\./test$\|^\./skel$\|^\./lib\|^\./doc\|^\./exam\|^\./archives\|^\./tests\)"
+
+    for a_description in $(find . -name description.yaml)
+    do
+        a_directory=$(dirname $a_description)
+        if [ ! -z "$(echo $a_directory | grep -v -e $EXCLUDED)" ]
+        then
+            CPT=$((CPT+1))
+            a_base=$(dirname $a_directory)
+            an_exo=$(basename $a_directory)
+            # has_description=$(test "-e $a_directory/description.yaml")
+            # has_exercice=$(test "-e $a_directory/exercice.c")
+            has_provided=$(test "-e $a_directory/provided.c")
+            uses_provided_function=$(test_not_contains "PROVIDED_FUNCTION" $a_directory/exercice.c)
+            uses_assert_struct=$(test_not_contains "ASSERT_STRUCT" $a_directory/exercice.c)
+            echo -n "- Exo "
+            printf '%-45s' "$an_exo (in $a_base)"
+            echo -e " : prov:$has_provided PROV:$uses_provided_function AS_ST:$uses_assert_struct"
+        fi
+    done
+    echo "$CPT exos listed"
+}
+
+case $1 in
+    -s)
+        launch_all_self_tests;
+        ;;
+    -t)
+        list_outdated_exercises;
+        ;;
+    *)
+        list_outdated_exercises;
+        ;;
+esac

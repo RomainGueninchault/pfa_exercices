@@ -1,0 +1,10 @@
+.PHONY=test clean 
+
+CFLAGS=-Werror -g 
+
+test: skeleton.o
+	gcc $(CFLAGS) skeleton.o test.o -o tester -lm
+	./tester
+
+clean:
+	rm -f skeleton.o  tester 
