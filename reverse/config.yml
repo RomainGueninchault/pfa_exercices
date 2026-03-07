@@ -1,0 +1,11 @@
+name: reverse
+tags: array int
+description: "Reverses an array of integers in place."
+timeout: 8
+distributes:
+  - test.o
+  - skeleton.c
+  - Makefile
+commands:
+  prepare: "make prepare"
+  validate: "make test"
