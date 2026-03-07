@@ -1,0 +1,11 @@
+name: pythagore
+tags: int
+description: "Returns 1 if a, b, and c satisfy the Pythagorean theorem; otherwise returns 0"
+timeout: 3
+distributes:
+  - test.o
+  - skeleton.c
+  - Makefile
+commands:
+  prepare: "make prepare"
+  validate: "make test"
