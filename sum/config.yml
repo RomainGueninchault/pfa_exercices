@@ -1,7 +1,6 @@
-name: sum
-tags: int array
-description: "Returns the sum of an array"
-timeout: 3
+tags: int
+description: "Returns the sum of two integers."
+timeout: 1
 distributes:
   - test.o
   - skeleton.c
