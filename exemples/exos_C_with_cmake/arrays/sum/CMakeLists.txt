@@ -1,7 +1,0 @@
-cmake_minimum_required(VERSION 3.10)
-project(sum_exercise C)
-set(CMAKE_C_STANDARD 11)
-add_compile_options(-Wall -Werror)
-add_executable(run_tests skeleton.c test.o)
-enable_testing()
-add_test(NAME sum_test COMMAND run_tests)

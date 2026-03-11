@@ -1,9 +1,0 @@
-langage: C
-description: "C exercises repository"
-distributes:
-  - test.o
-  - skeleton.c
-  - Makefile_test: Makefile
-commands:
-  prepare: "make prepare"
-  validate: "make test"

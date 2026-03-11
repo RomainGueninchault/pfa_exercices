@@ -1,6 +1,0 @@
-test:
-	gcc -Wall -Werror -c skeleton.c -o skeleton.o
-	gcc test.o skeleton.o -o binaire_test
-	./binaire_test
-
-.PHONY: test
