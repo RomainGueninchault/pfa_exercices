@@ -1,9 +1,0 @@
-type: library
-name: grader
-build:  # The command executed from within the exo directory
-  "GRADER_ROOT=$LIBROOT make -f $LIBROOT/lib/Makefile libexam.a"
-script: # The script executed within the container
-  "GRADER_ROOT=$LIBROOT make -f $LIBROOT/lib/Makefile.student enonce && ./enonce"
-clean: # The script that cleans the repository
-  "GRADER_ROOT=$LIBROOT make -f $LIBROOT/lib/Makefile mrproper"
-output: json
