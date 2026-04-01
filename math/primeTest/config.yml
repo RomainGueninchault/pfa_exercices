@@ -1,0 +1,11 @@
+author: Younes Bamouss
+langage: c
+timeout: 3
+description: Return 1 if the given integer is a prime number, otherwise return 0.
+distributes:
+  - test.o
+  - skeleton.c
+  - Makefile
+commands:
+  prepare: "make prepare"
+  validate: "make test"
