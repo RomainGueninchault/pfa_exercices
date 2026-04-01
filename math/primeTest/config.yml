@@ -1,6 +1,7 @@
 author: Younes Bamouss
 langage: c
 timeout: 3
+tags: int math modulo prime
 description: Return 1 if the given integer is a prime number, otherwise return 0.
 distributes:
   - test.o
